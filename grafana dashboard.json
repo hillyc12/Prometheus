@@ -23,7 +23,7 @@
   },
   "editable": true,
   "fiscalYearStartMonth": 0,
-  "graphTooltip": 0,
+  "graphTooltip": 1,
   "id": 1,
   "links": [],
   "liveNow": false,
@@ -36,7 +36,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "continuous-BlYlRd"
           },
           "mappings": [],
           "thresholds": {
@@ -48,7 +48,7 @@
               },
               {
                 "color": "red",
-                "value": 80
+                "value": 50
               }
             ]
           }
@@ -56,8 +56,8 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 9,
-        "w": 12,
+        "h": 8,
+        "w": 11,
         "x": 0,
         "y": 0
       },
@@ -66,13 +66,17 @@
         "displayMode": "gradient",
         "minVizHeight": 10,
         "minVizWidth": 0,
-        "orientation": "auto",
+        "orientation": "vertical",
         "reduceOptions": {
           "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": false,
+        "text": {
+          "titleSize": 9,
+          "valueSize": 20
+        }
       },
       "pluginVersion": "9.1.1",
       "targets": [
@@ -103,7 +107,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "continuous-BlYlRd"
           },
           "mappings": [],
           "thresholds": {
@@ -115,7 +119,7 @@
               },
               {
                 "color": "red",
-                "value": 80
+                "value": 50
               }
             ]
           }
@@ -124,8 +128,8 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 12,
-        "x": 12,
+        "w": 11,
+        "x": 13,
         "y": 0
       },
       "id": 6,
@@ -139,7 +143,10 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": false,
+        "text": {
+          "titleSize": 8
+        }
       },
       "pluginVersion": "9.1.1",
       "targets": [
@@ -167,7 +174,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "continuous-RdYlGr"
           },
           "mappings": [],
           "thresholds": {
@@ -179,7 +186,7 @@
               },
               {
                 "color": "red",
-                "value": 80
+                "value": 50
               }
             ]
           }
@@ -188,76 +195,13 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 8
-      },
-      "id": 8,
-      "options": {
-        "displayMode": "gradient",
-        "minVizHeight": 10,
-        "minVizWidth": 0,
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
-          "fields": "",
-          "values": false
-        },
-        "showUnfilled": true
-      },
-      "pluginVersion": "9.1.1",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "UIZ-HtZ4k"
-          },
-          "editorMode": "code",
-          "expr": "sum (success_count) by (Destinations)",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Successful Booking By Destination",
-      "type": "bargauge"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "UIZ-HtZ4k"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
+        "w": 11,
         "x": 0,
-        "y": 9
+        "y": 8
       },
       "id": 4,
       "options": {
-        "displayMode": "gradient",
+        "displayMode": "lcd",
         "minVizHeight": 10,
         "minVizWidth": 0,
         "orientation": "auto",
@@ -266,7 +210,10 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": false,
+        "text": {
+          "titleSize": 8
+        }
       },
       "pluginVersion": "9.1.1",
       "targets": [
@@ -283,10 +230,78 @@
         }
       ],
       "title": "Successful Bookings By Hotel",
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "UIZ-HtZ4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-RdYlGr"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 11,
+        "x": 13,
+        "y": 8
+      },
+      "id": 8,
+      "options": {
+        "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": false,
+        "text": {
+          "titleSize": 8
+        }
+      },
+      "pluginVersion": "9.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "UIZ-HtZ4k"
+          },
+          "editorMode": "code",
+          "expr": "sum (success_count) by (Destinations)",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Successful Booking By Destination",
+      "transparent": true,
       "type": "bargauge"
     }
   ],
-  "refresh": "1m",
+  "refresh": "30s",
   "schemaVersion": 37,
   "style": "dark",
   "tags": [],
@@ -301,6 +316,6 @@
   "timezone": "",
   "title": "Travel",
   "uid": "hSFbBpZ4k",
-  "version": 4,
+  "version": 7,
   "weekStart": ""
 }
