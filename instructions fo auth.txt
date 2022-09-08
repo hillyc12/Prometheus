@@ -1,0 +1,54 @@
+Description
+Everything is great so far, but anybody in the world with the internet access and the URL can visit my Prometheus server and see my data.
+
+To solve this problem, we will add user authentication.
+
+We will use Basic Authentication.
+
+SSH onto your server and CD into your /etc/nginx folder.
+
+
+cd /etc/nginx
+Then install apache2-utils (on ubuntu) or httpd-tools (on centos)
+
+
+#on ubuntu
+sudo apt install apache2-utils
+
+#on centos
+sudo yum install httpd-tools
+Now we can create a password file. In the command below, I am creating a user called 'admin'.
+
+
+htpasswd -c /etc/nginx/.htpasswd admin
+I then enter a password for the user.
+
+Next open the Nginx Prometheus config file we created.
+
+
+sudo nano /etc/nginx/sites-enabled/prometheus
+And add the two authentication properties in the examples below to the existing Nginx configuration file we have already created.
+
+
+server {
+    ...
+
+    #addition authentication properties
+    auth_basic  "Protected Area";
+    auth_basic_user_file /etc/nginx/.htpasswd;
+
+    location / {
+        proxy_pass           http://localhost:9090/;
+    }
+
+    ...
+}
+Save and test the new configuration has no errors
+
+
+nginx -t
+Restart Nginx
+
+
+sudo service nginx restart
+sudo service nginx status

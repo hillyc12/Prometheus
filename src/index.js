@@ -75,6 +75,7 @@ setInterval(() => {
 }, 9 * 1000);
 
 app.get("/metrics", async (req, res) => {
+  //   console.log(JSON.stringify(await register.getMetricsAsJSON(), null, 2));
   res.setHeader("Content-type", register.contentType);
   res.end(await register.metrics());
 });
